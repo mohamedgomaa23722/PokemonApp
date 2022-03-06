@@ -1,11 +1,11 @@
 # PokemonApp
 an idea of the app is to display pokemons and it's name use different libs and Design pattern we will use :
-1- Retrofit
-2-Dagger-hilt
-3- RxJava
-4- RoomDB
-5-MVVM Design Arch
-6-Repository pattern
-7-Glide
-8-ViewModel
-9- RecyclerView with adapter
+# 1- Retrofit
+# 2-Dagger-hilt
+# 3- RxJava
+# 4- RoomDB
+# 5-MVVM Design Arch
+# 6-Repository pattern
+# 7-Glide
+# 8-ViewModel
+# 9- RecyclerView with adapter
