@@ -2,6 +2,7 @@
 an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see and \n check
 ## Retrofit 
 #### Here we will write the retrofit and it's Dependcies
+[Go to retrofite lib](www.google.com)
 ## - Dagger-hilt
 #### Here we will write the Dagger and it's Dependcies
 ## - RxJava
