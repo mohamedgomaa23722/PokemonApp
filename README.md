@@ -1,9 +1,13 @@
 # PokemonApp
 an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see and \n check
 ## Retrofit 
-#### Here we will write the retrofit and it's Dependcies
-[Go to retrofite lib](www.google.com)
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+- At the first we must get the Dependencies of Retrofit 
+```
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+```
+
 ## - Dagger-hilt
 #### Here we will write about the hilt lib
 ## - RxJava
