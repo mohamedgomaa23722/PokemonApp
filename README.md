@@ -1,7 +1,7 @@
 # PokemonApp
 an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see and \n check
--Retrofit 
-<p>Here we will write the retrofit and it's Dependcies</p>
+##Retrofit 
+####Here we will write the retrofit and it's Dependcies
 <h2> Dagger-hilt</h2> 
 <p>Here we will write the Dagger and it's Dependcies</p>
 <h2> RxJava</h2> 
