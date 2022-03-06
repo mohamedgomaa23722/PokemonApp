@@ -5,13 +5,16 @@ an idea of the app is to display pokemons and it's name use different libs and D
 [Go to retrofite lib](www.google.com)
 ![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
 ## - Dagger-hilt
-#### Here we will write the Dagger and it's Dependcies
+#### is a software design pattern that is structured to separate program logic and user interface controls. MVVM is also known as model-view-binder and was created by Microsoft architects Ken Cooper and John Gossman.
+- Model 
+- View
+- View model
 ## - RxJava
 #### Here we will write the RxJava and it's Dependcies
 ## - RoomDB
 #### Here we will write the RoomDB and it's Dependcies
 ## - MVVM Design Arch
-#### Here we will write the MVVM and it's Dependcies
+#### MVVM
 ## - Repository pattern
 #### Here we will write the Repository pattern and it's Dependcies
 ## - Glide
