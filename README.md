@@ -13,7 +13,7 @@ an idea of the app is to display pokemons and it's name use different libs and D
 ## - Repository pattern
 #### Here we will write the Repository pattern and it's Dependcies
 ## - Glide
-#### > Here we will write the Glide and it's Dependcies
+> Here we will write the Glide and it's Dependcies
 ## - ViewModel
 #### Here we will write the ViewModel and it's Dependcies
 ## - RecyclerView with adapter
