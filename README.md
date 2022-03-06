@@ -1,5 +1,5 @@
 # PokemonApp
-an idea of the app is to display pokemons and it's name use different libs and Design pattern we will use :
+an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see and \n check
 # 1- Retrofit
 # 2-Dagger-hilt
 # 3- RxJava
