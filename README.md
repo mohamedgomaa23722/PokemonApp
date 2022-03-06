@@ -51,7 +51,7 @@ public class BaseApplication extends Application {
 }
 ```
 
-so then we will analys the Acyclic graph and get the dependent and dependencies :
+so then we will draw the Acyclic graph and get the dependent and dependencies :
 
 ![The Acyclic Graph ](https://github.com/mohamedgomaa23722/PokemonApp/blob/master/Unnamed%20File.png)
 
