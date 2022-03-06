@@ -51,7 +51,7 @@ public class BaseApplication extends Application {
 }
 ```
 
-so then we will analys the Acyclic graph and get the dependent and dependencies :
+so then we will draw the Acyclic graph and get the dependent and dependencies :
 
 ![The Acyclic Graph ](https://github.com/mohamedgomaa23722/PokemonApp/blob/master/Unnamed%20File.png)
 
@@ -59,7 +59,7 @@ To draw this diagram i used [EdrawMax](https://www.edrawmax.com/online/en/) to d
 
 > As you see at the graph repo depend on retrofit so we need to ask about that class
 is not main which mean that i can't change any thing on it so at this case we need to use 
-@module, @Provides and @Singelton annotations to create an module class for retrofit.
+@module, @Provides and @Singelton annotations to create an module class for retrofit called [RetrofitModule](https://github.com/mohamedgomaa23722/PokemonApp/blob/master/app/src/main/java/com/pok/pokemonapp/di/RetrofitModule.java).
 
 ## RxJava
 - At the first we must add Dependencies of RxJava 
