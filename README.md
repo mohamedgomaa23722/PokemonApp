@@ -1,6 +1,6 @@
 # PokemonApp
 an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see and \n check
-<h2 color="blue"> <ul>Retrofit</ul></h2> 
+-Retrofit 
 <p>Here we will write the retrofit and it's Dependcies</p>
 <h2> Dagger-hilt</h2> 
 <p>Here we will write the Dagger and it's Dependcies</p>
