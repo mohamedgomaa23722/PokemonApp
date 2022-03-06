@@ -1,5 +1,5 @@
 # PokemonApp
-an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see.
+an idea of the app is to display Pokemons and it's name use different libs and Design pattern user can see.
 
 we will use [PokeApi](https://pokeapi.co/) to retrive the data and display it into our application.
 
@@ -57,7 +57,7 @@ so then we will analys the Acyclic graph and get the dependent and dependencies 
 
 To draw this diagram i used [EdrawMax](https://www.edrawmax.com/online/en/) to draw it.
 
-> As you see at the graph repository depend on retrofit so we need to ask about that class
+> As you see at the graph repo depend on retrofit so we need to ask about that class
 is not main which mean that i can't change any thing on it so at this case we need to use 
 @module, @Provides and @Singelton annotations to create an module class for retrofit.
 

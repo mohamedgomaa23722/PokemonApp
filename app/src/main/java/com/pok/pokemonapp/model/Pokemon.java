@@ -1,10 +1,10 @@
 package com.pok.pokemonapp.model;
 
-public class pokemon {
+public class Pokemon {
     private String name;
     private String url;
 
-    public pokemon(String name, String url) {
+    public Pokemon(String name, String url) {
         this.name = name;
         this.url = url;
     }

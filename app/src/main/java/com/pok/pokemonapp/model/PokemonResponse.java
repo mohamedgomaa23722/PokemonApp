@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class PokemonResponse {
     private int count;
     private String next, previous;
-    private ArrayList<pokemon> results;
+    private ArrayList<Pokemon> results;
 
-    public PokemonResponse(int count, String next, String previous, ArrayList<pokemon> results) {
+    public PokemonResponse(int count, String next, String previous, ArrayList<Pokemon> results) {
         this.count = count;
         this.next = next;
         this.previous = previous;
@@ -38,11 +38,11 @@ public class PokemonResponse {
         this.previous = previous;
     }
 
-    public ArrayList<pokemon> getResults() {
+    public ArrayList<Pokemon> getResults() {
         return results;
     }
 
-    public void setResults(ArrayList<pokemon> results) {
+    public void setResults(ArrayList<Pokemon> results) {
         this.results = results;
     }
 }
