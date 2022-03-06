@@ -1,5 +1,10 @@
 # PokemonApp
-an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see and \n check
+an idea of the app is to display pokemons and it's name use different libs and Design pattern user can see.
+
+we will use [PokeApi](https://pokeapi.co/) to retrive the data and display it into our application.
+
+At the end i need to thank [Aly El Hamalawey](https://github.com/Alinasser96) for this great tutorial on [coding with nerds](https://www.youtube.com/channel/UCnDAXfhnL5j-KhHc1KhvXHw).
+
 ## Retrofit 
 - At the first we must add Dependencies of Retrofit 
 ```
@@ -8,7 +13,7 @@ an idea of the app is to display pokemons and it's name use different libs and D
     implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
 ```
 
-## Dagger-hilt
+## [Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android#groovy) 
 
 - At the first we must add Dependencies of hilt 
 ```
@@ -17,7 +22,39 @@ an idea of the app is to display pokemons and it's name use different libs and D
     implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
     annotationProcessor 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
 ```
+- add the plugin of that liberary
+```
+plugins {
+  id 'kotlin-kapt'
+  id 'dagger.hilt.android.plugin'
+}
+```
+- add complier java8 into android {} object
+```
+   compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+```
+- add classPath on build.gradle in project not module
+```
+   classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+```
 
+very good now we need to make hilt run all over the application let me explain more 
+, I need to change the defualt Application class which runs before any Activity or fragment to know 
+that so we will use @HiltAndroidApp Annotation for my Base Applicaiton new calss
+```
+@HiltAndroidApp
+public class BaseApplication extends Application {
+
+}
+```
+
+so then we will analys the Acyclic graph and get the dependent and dependencies :
+![The Acyclic Graph ](https://drive.google.com/file/d/1RlRaGJEAn42M-yIzuygpNP2jdSBVzlT1/view?usp=sharing)
+
+To draw this diagram i used [EdrawMax](https://www.edrawmax.com/online/en/) to draw it.
 ## RxJava
 - At the first we must add Dependencies of RxJava 
 ```
