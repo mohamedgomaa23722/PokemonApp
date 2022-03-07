@@ -104,6 +104,39 @@ The separation of the code in MVVM is divided into View, ViewModel and Model:
 ```
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
 ```
+
+- Second thing As we know that this view model depend on repository so we will create a constructor 
+with this repo and activity depend on view model so we will add new annotation used for this view model with hilt
+>    @ViewModelInject
+
+- Then we find some problem on the api that the url doesn't belong to the image path so we need to find 
+  the path to observe the image of pokemon.
+  > I noticed that the url has the item id so we will use it with image path 
+  > The path will be like that URL / PokemonID.png 
+  
+ - so the steps for that process to get the id from the url:
+   - split the url into String array
+   - Add ( real image url + last element in that array + .png )
+ 
+          ```
+         .map(new Function<PokemonResponse, ArrayList<Pokemon>>() {
+                    @Override
+                    public ArrayList<Pokemon> apply(PokemonResponse pokemonResponse) throws Throwable {
+                        ArrayList<Pokemon> list = pokemonResponse.getResults();
+                        for (Pokemon pokemon : list) {
+                            String url = pokemon.getUrl();
+                            String[] pokemonIndex = url.split("/");
+                            pokemon.setUrl(IMAGE_URL + pokemonIndex[pokemonIndex.length - 1] + ".png");
+                        }
+                        return list;
+                    }
+                })
+                
+                ```
+    Real Image Url is : [Go the Real Image url](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png) 
+ 
+ - now we can use this view model now congratulation
+
 ## Other usable Dependcies
 ```
  def nav_version = "2.3.0-beta01"
