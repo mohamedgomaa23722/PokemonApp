@@ -1,5 +1,6 @@
 package com.pok.pokemonapp.Adapters;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> {
     private ArrayList<Pokemon> mList = new ArrayList<>();
     private Context mContext;
-
+    private static final String TAG = "PokemonAdapter";
     public PokemonAdapter(Context mContext) {
         this.mContext = mContext;
     }
@@ -34,7 +35,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     @Override
     public void onBindViewHolder(@NonNull PokemonViewHolder holder, int position) {
         holder.pokemonName.setText(mList.get(position).getName());
-
+        Log.d(TAG, "onBindViewHolder: "+mList.get(position).getUrl());
         Glide.with(mContext).load(mList.get(position).getUrl())
                 .into(holder.pokemonImage);
     }

@@ -1,9 +1,12 @@
 package com.pok.pokemonapp.viewModel;
 
+import static com.pok.pokemonapp.global.globalVariables.IMAGE_URL;
+
 import android.annotation.SuppressLint;
 import android.util.Log;
 
 import androidx.hilt.lifecycle.ViewModelInject;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -12,6 +15,7 @@ import com.pok.pokemonapp.model.PokemonResponse;
 import com.pok.pokemonapp.repository.Repo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -21,7 +25,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class pokemonViewModel extends ViewModel {
 
     private Repo repo;
-
+    private LiveData<List<Pokemon>> favList = null;
     MutableLiveData<ArrayList<Pokemon>> pokemonList = new MutableLiveData<>();
 
     @ViewModelInject
@@ -43,7 +47,7 @@ public class pokemonViewModel extends ViewModel {
                         for (Pokemon pokemon : list) {
                             String url = pokemon.getUrl();
                             String[] pokemonIndex = url.split("/");
-                            pokemon.setUrl("https://pokeres.bastionbot.org/images/pokemon/" + pokemonIndex[pokemonIndex.length - 1] + ".png");
+                            pokemon.setUrl(IMAGE_URL + pokemonIndex[pokemonIndex.length - 1] + ".png");
                         }
                         return list;
                     }
@@ -51,5 +55,21 @@ public class pokemonViewModel extends ViewModel {
                 .subscribe(result -> pokemonList.setValue(result),
                         error -> Log.e("viewModel", error.getMessage()));
 
+    }
+
+    public void insertPokemon(Pokemon pokemon){
+        repo.insertPokemon(pokemon);
+    }
+
+    public void deletePokemon(Pokemon pokemon){
+        repo.deletePokemon(pokemon);
+    }
+
+    public void getFavPokemon(){
+        favList = repo.getFavPokemon();
+    }
+
+    public LiveData<List<Pokemon>> getFavList() {
+        return favList;
     }
 }

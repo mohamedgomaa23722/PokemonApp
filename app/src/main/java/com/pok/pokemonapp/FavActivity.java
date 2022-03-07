@@ -2,14 +2,11 @@ package com.pok.pokemonapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,8 +19,7 @@ import java.util.ArrayList;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = "MainActivity";
+public class FavActivity extends AppCompatActivity implements View.OnClickListener {
     private pokemonViewModel viewModel;
     private RecyclerView recyclerView;
     private PokemonAdapter adapter;
@@ -31,28 +27,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fav);
 
-        recyclerView = findViewById(R.id.PokemonRecyclerView);
+        recyclerView = findViewById(R.id.favRecyclerView);
         adapter = new PokemonAdapter(this);
         recyclerView.setAdapter(adapter);
         setupSwipe();
-        findViewById(R.id.fav_btn).setOnClickListener(this);
+        findViewById(R.id.home_btn).setOnClickListener(this);
 
         viewModel = new ViewModelProvider(this).get(pokemonViewModel.class);
-        viewModel.getPokemons();
-        viewModel.getPokemonList().observe(this, new Observer<ArrayList<Pokemon>>() {
-            @Override
-            public void onChanged(ArrayList<Pokemon> Pokemons) {
+        viewModel.getFavPokemon();
 
-                Log.d(TAG, "onChanged: "+Pokemons);
-                adapter.setList(Pokemons);
-            }
+        viewModel.getFavList().observe(this, pokemons -> {
+            ArrayList<Pokemon> list = new ArrayList<>(pokemons);
+            adapter.setList(list);
         });
+
     }
 
-    private void setupSwipe(){
-        ItemTouchHelper.SimpleCallback callback= new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+    private void setupSwipe() {
+        ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -60,10 +54,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-             int swipedPokemonPosition = viewHolder.getAdapterPosition();
-             viewModel.insertPokemon(adapter.getPokemonAt(swipedPokemonPosition));
-             adapter.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Pokemon added to Fav", Toast.LENGTH_SHORT).show();
+                int swipedPokemonPosition = viewHolder.getAdapterPosition();
+                viewModel.deletePokemon(adapter.getPokemonAt(swipedPokemonPosition));
+                adapter.notifyDataSetChanged();
+                Toast.makeText(FavActivity.this, "Pokemon Deleted from Fav", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -74,6 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-     startActivity(new Intent(getApplicationContext(), FavActivity.class));
+        finish();
     }
 }
