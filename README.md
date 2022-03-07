@@ -98,7 +98,9 @@ The separation of the code in MVVM is divided into View, ViewModel and Model:
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 ```
-
+- we will use glide to set the pokemon Image into our image view 
+ >  Glide.with(Context).load(Url)
+                .into(pokemonImageView);
 ## ViewModel
 - At the first we must add Dependency of ViewModel
 ```
